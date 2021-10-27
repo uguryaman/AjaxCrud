@@ -1,0 +1,26 @@
+﻿@model AjaxCrud.Models.Admin
+@{
+    ViewData["Title"] = "AddorEdit";
+    Layout = null;
+
+
+}
+
+<h1>AddorEdit</h1>
+@using (Html.BeginForm("AddorEdit", "Ugur", FormMethod.Post, new { id = Model.AdminId }))
+{
+    @Html.HiddenFor(x=>x.AdminId)
+    <p>ad soyad</p>
+    @Html.TextBoxFor(x => x.AdminName, new { @class = "form-control" }) @Html.TextBoxFor(x => x.AdminSurname, new { @class = "form-control" })
+    <br />
+    <p>kullanıcı adı</p>
+
+    @Html.TextBoxFor(x => x.AdminUsername, new { @class = "form-control" })
+    <br />
+    <br />
+    <p>şifre</p>
+
+    @Html.PasswordFor(x => x.AdminPasword, new { @class = "form-control" })
+
+    <button type="submit">kaydet</button>
+}

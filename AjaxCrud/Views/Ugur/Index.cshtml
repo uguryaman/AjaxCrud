@@ -1,0 +1,33 @@
+﻿@model List<AjaxCrud.Models.Admin>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<a onclick="showInPopup('@Url.Action("AddorEdit","Ugur",null,Context.Request.Scheme)','Yeni Admin')"  class="btn btn-success">yeni</a>
+
+<table class="table table-bordered">
+    <tr>
+        <td>ad</td>
+        <td>soyad</td>
+        <td>şifre</td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AdminName</td>
+            <td>@item.AdminSurname</td>
+            <td>@item.AdminPasword</td>
+            <td>
+                <a onclick="showInPopup('@Url.Action("AddorEdit","Ugur",new { id=item.AdminId},Context.Request.Scheme)','Admin Düzenle')" class="btn btn-success">yeni</a>
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+
+
+    
